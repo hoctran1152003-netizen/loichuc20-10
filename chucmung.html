@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng 20/10</title>
+    <style>
+        /* CSS cho toàn bộ trang */
+        body {
+            /* Sử dụng Flexbox để căn giữa mọi thứ */
+            display: flex;
+            flex-direction: column; /* Xếp các mục theo chiều dọc */
+            justify-content: center; /* Căn giữa theo chiều dọc */
+            align-items: center; /* Căn giữa theo chiều ngang */
+            min-height: 100vh; /* Chiều cao tối thiểu bằng màn hình */
+            margin: 0;
+            background-color: #fdf0f3; /* Màu nền hồng rất nhạt */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            overflow: hidden; /* Ẩn thanh cuộn */
+        }
+
+        /* CSS để vẽ trái tim */
+        .heart {
+            background-color: #e53935; /* Màu đỏ đậm */
+            height: 150px;
+            width: 150px;
+            position: relative;
+            transform: rotate(-45deg);
+            /* Tạo khoảng cách cho 2 nửa hình tròn ở trên */
+            margin-bottom: 100px; 
+            /* Thêm animation nhịp đập */
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        /* Sử dụng pseudo-elements ::before và ::after để tạo 2 nửa hình tròn */
+        .heart::before,
+        .heart::after {
+            content: "";
+            background-color: #e53935; /* Phải cùng màu */
+            border-radius: 50%; /* Biến thành hình tròn */
+            height: 150px;
+            width: 150px;
+            position: absolute; /* Định vị tuyệt đối so với .heart */
+        }
+
+        /* Nửa hình tròn bên trên */
+        .heart::before {
+            top: -75px; /* Di chuyển lên trên 1 nửa chiều cao */
+            left: 0;
+        }
+
+        /* Nửa hình tròn bên phải */
+        .heart::after {
+            top: 0;
+            left: 75px; /* Di chuyển sang phải 1 nửa chiều rộng */
+        }
+
+        /* Animation cho nhịp đập */
+        @keyframes pulse {
+            0% {
+                /* Phải giữ nguyên góc xoay 45 độ */
+                transform: scale(1) rotate(-45deg);
+            }
+            50% {
+                transform: scale(1.1) rotate(-45deg);
+            }
+            100% {
+                transform: scale(1) rotate(-45deg);
+            }
+        }
+
+        /* CSS cho dòng chữ */
+        .message {
+            font-size: 2rem; /* Kích thước chữ 32px */
+            color: #d81b60; /* Màu hồng đậm */
+            font-weight: bold;
+            /* Font chữ viết tay, nếu không có sẽ dùng font serif */
+            font-family: 'Cursive', 'Brush Script MT', 'Palatino Linotype', serif;
+            text-align: center;
+            padding: 0 20px; /* Thêm đệm cho màn hình điện thoại */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="heart"></div>
+
+    <h1 class="message">Chúc mừng 20/10 mẹ và chị nha!</h1>
+
+</body>
+</html>
