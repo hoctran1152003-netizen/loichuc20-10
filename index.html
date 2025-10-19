@@ -4,80 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chúc Mừng 20/10</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* CSS cho toàn bộ trang */
         body {
-            /* Sử dụng Flexbox để căn giữa mọi thứ */
             display: flex;
-            flex-direction: column; /* Xếp các mục theo chiều dọc */
-            justify-content: center; /* Căn giữa theo chiều dọc */
-            align-items: center; /* Căn giữa theo chiều ngang */
-            min-height: 100vh; /* Chiều cao tối thiểu bằng màn hình */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
             margin: 0;
             background-color: #fdf0f3; /* Màu nền hồng rất nhạt */
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            overflow: hidden; /* Ẩn thanh cuộn */
+            font-family: 'Dancing Script', cursive; /* Sử dụng font Dancing Script, nếu không có sẽ dùng cursive */
+            overflow: hidden;
+            color: #880e4f; /* Màu chữ hồng đậm tổng thể */
         }
 
-        /* CSS để vẽ trái tim */
         .heart {
             background-color: #e53935; /* Màu đỏ đậm */
-            height: 150px;
-            width: 150px;
+            height: 180px; /* To hơn một chút */
+            width: 180px; /* To hơn một chút */
             position: relative;
             transform: rotate(-45deg);
-            /* Tạo khoảng cách cho 2 nửa hình tròn ở trên */
-            margin-bottom: 100px; 
-            /* Thêm animation nhịp đập */
+            margin-bottom: 120px; /* Khoảng cách lớn hơn */
             animation: pulse 1.5s ease-in-out infinite;
         }
 
-        /* Sử dụng pseudo-elements ::before và ::after để tạo 2 nửa hình tròn */
         .heart::before,
         .heart::after {
             content: "";
-            background-color: #e53935; /* Phải cùng màu */
-            border-radius: 50%; /* Biến thành hình tròn */
-            height: 150px;
-            width: 150px;
-            position: absolute; /* Định vị tuyệt đối so với .heart */
+            background-color: #e53935;
+            border-radius: 50%;
+            height: 180px;
+            width: 180px;
+            position: absolute;
         }
 
-        /* Nửa hình tròn bên trên */
         .heart::before {
-            top: -75px; /* Di chuyển lên trên 1 nửa chiều cao */
+            top: -90px; /* Di chuyển lên trên 1 nửa chiều cao mới */
             left: 0;
         }
 
-        /* Nửa hình tròn bên phải */
         .heart::after {
             top: 0;
-            left: 75px; /* Di chuyển sang phải 1 nửa chiều rộng */
+            left: 90px; /* Di chuyển sang phải 1 nửa chiều rộng mới */
         }
 
-        /* Animation cho nhịp đập */
         @keyframes pulse {
-            0% {
-                /* Phải giữ nguyên góc xoay 45 độ */
-                transform: scale(1) rotate(-45deg);
-            }
-            50% {
-                transform: scale(1.1) rotate(-45deg);
-            }
-            100% {
-                transform: scale(1) rotate(-45deg);
-            }
+            0% { transform: scale(1) rotate(-45deg); }
+            50% { transform: scale(1.1) rotate(-45deg); }
+            100% { transform: scale(1) rotate(-45deg); }
         }
 
-        /* CSS cho dòng chữ */
-        .message {
-            font-size: 2rem; /* Kích thước chữ 32px */
-            color: #d81b60; /* Màu hồng đậm */
-            font-weight: bold;
-            /* Font chữ viết tay, nếu không có sẽ dùng font serif */
-            font-family: 'Cursive', 'Brush Script MT', 'Palatino Linotype', serif;
+        .message-container {
             text-align: center;
-            padding: 0 20px; /* Thêm đệm cho màn hình điện thoại */
+            font-size: 2.5rem; /* Kích thước chữ to hơn */
+            line-height: 1.2; /* Khoảng cách dòng */
+            font-weight: 700; /* In đậm hơn */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Thêm đổ bóng cho chữ */
+            padding: 0 20px;
+        }
+
+        .highlight-name {
+            font-size: 3.5rem; /* Kích thước tên to hơn rất nhiều */
+            color: #d81b60; /* Màu hồng đậm hơn cho tên */
+            font-weight: 700;
         }
     </style>
 </head>
@@ -85,7 +75,10 @@
 
     <div class="heart"></div>
 
-    <h1 class="message">Chúc mừng 20/10 mẹ và chị nha!</h1>
+    <div class="message-container">
+        Chúc mừng 20/10<br>
+        <span class="highlight-name">Mẹ Hưởng</span> và <span class="highlight-name">Chị Hà</span> nha!
+    </div>
 
 </body>
 </html>
